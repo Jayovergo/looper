@@ -9,7 +9,9 @@ datasource db {
 }
 
 model Package {
-  id        BigInt  @id(map: "primary") @default(autoincrement())
-  distance  BigInt
-  delivered Boolean @default(false)
+  id        String   @id(map: "primary") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  distance  Int?
+  delivered DateTime @default(now())
+  from      String?
+  to        String?
 }
