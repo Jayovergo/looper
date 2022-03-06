@@ -9,12 +9,14 @@ import {
 import { useState } from "react";
 
 // TODO get barcode data from server
-const getBarcode = async (code: string) => ({
-  distance: 5000,
-  from: "NY",
-  to: "Europe",
-  code,
-});
+const getBarcode = async (code: string) => {
+  return {
+    distance: 5000,
+    from: "NY",
+    to: "Europe",
+    code,
+  };
+};
 
 export default function Index() {
   const [pack, setPackage] = useState<null | {
