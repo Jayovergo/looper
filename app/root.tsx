@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
+import { AppBar, Container, Toolbar, Typography } from "@mui/material";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
@@ -21,8 +22,17 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <Outlet />
+      <body style={{ margin: 0 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Looper
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Container style={{ marginTop: 15 }}>
+          <Outlet />
+        </Container>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
