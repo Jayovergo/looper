@@ -1,0 +1,15 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["cockroachdb"]
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Package {
+  id        BigInt  @id(map: "primary") @default(autoincrement())
+  distance  BigInt
+  delivered Boolean @default(false)
+}
